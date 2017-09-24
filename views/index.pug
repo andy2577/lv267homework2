@@ -2,6 +2,7 @@ extends layout
 
 block content
   h1= title
-  ul
+  ul.list-unstyled
     each quote in quotes
+      small.text-muted= quote.student
       li= quote.data
