@@ -4,9 +4,7 @@ var router = express.Router();
 // var data = require('../data');
 var data = '';
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-
+let apireq = (res) => {
   const options = {
     hostname: 'lv267homework2-api.herokuapp.com',
     port: 443,
@@ -36,7 +34,11 @@ router.get('/', function (req, res, next) {
   });
 
   ajxreq.end();
+}
 
+/* GET home page. */
+router.get('/', function (req, res, next) {
+    apireq(res);
 });
 
 module.exports = router;
