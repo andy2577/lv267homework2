@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   ul.list-unstyled
-    if show
+    if show && quotes[show]
       small.text-muted= quotes[show].student
       li= quotes[show].data
     else
