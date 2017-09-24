@@ -1,11 +1,42 @@
 var express = require('express');
+var https = require('https');
 var router = express.Router();
-var data = require('../data');
+// var data = require('../data');
+var data = '';
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'ЕнеЇда', 
-            quotes: data});
+router.get('/', function (req, res, next) {
+
+  const options = {
+    hostname: 'lv267homework2-api.herokuapp.com',
+    port: 443,
+    path: '/',
+    method: 'GET'
+  };
+
+  const ajxreq = https.request(options, (ajxres) => {
+    // console.log('statusCode:', ajxres.statusCode);
+    // console.log('headers:', ajxres.headers);
+
+    ajxres.on('data', (d) => {
+      // process.stdout.write(d);
+      data = JSON.parse(d);
+
+
+      res.render('index', {
+        title: 'ЕнеЇда',
+        quotes: data
+      });
+
+    });
+  });
+
+  ajxreq.on('error', (e) => {
+    console.error(e);
+  });
+
+  ajxreq.end();
+
 });
 
 module.exports = router;
