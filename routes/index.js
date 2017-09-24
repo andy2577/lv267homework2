@@ -4,7 +4,7 @@ var router = express.Router();
 // var data = require('../data');
 var data = '';
 
-let apireq = (res) => {
+let apireq = (req, res) => {
   const options = {
     hostname: 'lv267homework2-api.herokuapp.com',
     port: 443,
@@ -19,11 +19,11 @@ let apireq = (res) => {
     ajxres.on('data', (d) => {
       // process.stdout.write(d);
       data = JSON.parse(d);
-
-
+      // console.log(req.params.student);
       res.render('index', {
         title: 'ЕнеЇда',
-        quotes: data
+        quotes: data,
+        show: req.params.student
       });
 
     });
@@ -38,7 +38,11 @@ let apireq = (res) => {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    apireq(res);
+  apireq(req, res);
+});
+
+router.get('/:student', function (req, res, next) {
+  apireq(req, res);
 });
 
 module.exports = router;
