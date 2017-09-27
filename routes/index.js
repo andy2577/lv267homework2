@@ -2,14 +2,11 @@ var express = require('express');
 var router = express.Router();
 // var data = require('../data');
 var indexController = require('../controllers/indexController');
-var testController = require('../controllers/testController');
 
 /* GET home page. */
 router.get('/', indexController);
 
-router.get('/test', testController);
-
-// router.get('/:student', indexController);
+router.get('/:student', indexController);
 
 router.post('/student', function(req, res, next){
     res.send(req.body);
