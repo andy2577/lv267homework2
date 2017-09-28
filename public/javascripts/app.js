@@ -1,11 +1,37 @@
-$(document).ready(function () {
+$(document).ready(function() {
+
+    //Hidden Input field
+    let hiddenInput;
+
+    //hide buttons
     $('button.btn-danger, button.btn-success').attr("hidden", true);
-    $('li').click(function () {
+
+    //set Eventlistiner to the list item
+    $('li').click(function() {
         this.contentEditable = true;
         let selfId = this.attributes.name.value;
-        $.each($('#' + selfId), (index, item) => {
+        let self = this;
+
+        //console.log(selfId);
+        //test value
+        //hiddenInput.value = 'test text';
+        // $(this).on('kedown', console.log("keydown"));
+
+        //display hidden buttons
+        $.each($('.' + selfId), (index,item)=>{
             $(item).attr("hidden", false);
-            console.log(item);
+            //console.log(item);
+        }
+        );
+        //set hook to hiddenInput
+        hiddenInput = $($('li[name=' + selfId + ']')[0]).siblings('input[name=quote]')[0];
+
+        $(self).on('keyup', function test() {
+            //console.log('keydown');
+            hiddenInput.value = $(self).text();
+            console.log(hiddenInput.value);
+
         });
     });
+
 });

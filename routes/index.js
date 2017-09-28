@@ -3,13 +3,13 @@ var router = express.Router();
 // var data = require('../data');
 var indexController = require('../controllers/indexController');
 var saveController = require('../controllers/saveController');
-var deleteController = require('../controllers/deleteController');
+var itemController = require('../controllers/itemController');
 
 /* GET home page. */
 router.get('/', indexController);
 
 // router.delete('/:delete', deleteController);
-router.post('/delete/:delete', deleteController);
+router.post('/item/:id', itemController);
 
 router.post('/newquote', saveController);
 

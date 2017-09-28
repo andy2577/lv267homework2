@@ -9,13 +9,13 @@ block content
     else
       each quote in quotes
         -var fmId = quote._id
-        form&attributes({'method': 'POST', 'action': "/delete/" + quote._id})
+        form&attributes({'method': 'POST', 'action': "/item/" + quote._id})
           small.text-muted= quote.student
           li(name= fmId)
               = quote.quote
-          //- input.form-control(type='hidden', name='id', value= #{quote._id})
-          button.btn.btn-danger.btn-sm(id=quote._id, type='submit') Delete
-          button.btn.btn-success.btn-sm(id=quote._id, type='submit') Save
+          input(type='hidden' name='quote' value='')
+          button(class= '' + quote._id + ' btn btn-danger btn-sm' type='submit' name='button' value='delete') Delete
+          button(class= '' + quote._id + ' btn btn-success btn-sm' type='submit' name='button' value='save') Save
 
   // register form
   form(method='POST' action='/newquote')
