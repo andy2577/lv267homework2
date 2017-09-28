@@ -13,10 +13,6 @@ router.post('/delete/:delete', deleteController);
 
 router.post('/newquote', saveController);
 
-// router.get('/student/:id', function(req, res, next){
-//     res.send(req.params.id);
-//     console.log(req.params.id);
-// });
 
 // router.delete('/student/:id', function(req, res, next){
 //     res.send(req.body);
