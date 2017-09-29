@@ -14,8 +14,8 @@ block content
           li(name= fmId)
               = quote.quote
           input(type='hidden' name='quote' value='')
-          button(class= '' + quote._id + ' btn btn-danger btn-sm col-4' type='submit' name='button' value='delete') Delete
-          button(class= '' + quote._id + ' btn btn-success btn-sm col-4' type='submit' name='button' value='save') Save
+          button(class= '' + quote._id + ' btn btn-danger btn-sm col-2' type='submit' name='button' value='delete') Delete
+          button(class= '' + quote._id + ' btn btn-success btn-sm col-2' type='submit' name='button' value='save') Save
 
   // register form
   form(method='POST' action='/newquote')
