@@ -15,6 +15,12 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// set locals as menus to view generators
+app.locals.navitems = [
+  {link: 'this', content: 'that'},
+  {link: 'secondLink', content: 'secondContent'}
+];
+
 //DB connection
 var configDB = require('./dbsettings.js');
 mongoose.connect(configDB.url, { useMongoClient: true, promiseLibrary: global.Promise });

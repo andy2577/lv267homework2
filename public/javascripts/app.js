@@ -12,11 +12,6 @@ $(document).ready(function() {
         let selfId = this.attributes.name.value;
         let self = this;
 
-        //console.log(selfId);
-        //test value
-        //hiddenInput.value = 'test text';
-        // $(this).on('kedown', console.log("keydown"));
-
         //display hidden buttons
         $.each($('.' + selfId), (index,item)=>{
             $(item).attr("hidden", false);
@@ -26,6 +21,7 @@ $(document).ready(function() {
         //set hook to hiddenInput
         hiddenInput = $($('li[name=' + selfId + ']')[0]).siblings('input[name=quote]')[0];
 
+        //Set event listener to paragraph
         $(self).on('keyup', function test() {
             //console.log('keydown');
             hiddenInput.value = $(self).text();
