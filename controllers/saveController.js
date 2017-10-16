@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
 
             var options = {
                 quotes: dbres,
-                show: false,//hack for testing TODO proper flag id
+                show: false,
                 title: 'ЕнеЇда'
             }
             res.render('index', options);
