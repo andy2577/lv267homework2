@@ -1,9 +1,6 @@
 var Eneida = require('../models/book');
 
 module.exports = (req, res, next) => {
-    console.log("this is parametter  " + req.params.button);
-    console.log("this is body parametter  " + req.body.button);
-
 
     if (req.body.button == 'delete') {
         // Delete model instance from DB
@@ -12,12 +9,10 @@ module.exports = (req, res, next) => {
             console.log('deleted');
             //render page
             Eneida.find((err, dbres) => {
-
                 if (err) return err;
-
                 var options = {
                     quotes: dbres,
-                    show: false,//hack for testing TODO proper flag id
+                    show: false,
                     title: 'ЕнеЇда'
                 }
                 res.render('index', options);
@@ -30,12 +25,10 @@ module.exports = (req, res, next) => {
 
             //render page
             Eneida.find((err, dbres) => {
-
                 if (err) return err;
-
                 var options = {
                     quotes: dbres,
-                    show: false,//hack for testing TODO proper flag id
+                    show: false,
                     title: 'ЕнеЇда'
                 }
                 res.render('index', options);

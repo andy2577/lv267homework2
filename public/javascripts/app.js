@@ -15,7 +15,6 @@ $(document).ready(function() {
         //display hidden buttons
         $.each($('.' + selfId), (index,item)=>{
             $(item).attr("hidden", false);
-            //console.log(item);
         }
         );
         //set hook to hiddenInput
@@ -23,7 +22,6 @@ $(document).ready(function() {
 
         //Set event listener to paragraph
         $(self).on('keyup', function test() {
-            //console.log('keydown');
             hiddenInput.value = $(self).text();
             console.log(hiddenInput.value);
 
